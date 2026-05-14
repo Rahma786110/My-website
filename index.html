@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rehema Ausi — Data Analyst & Data Scientist Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Instrument+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F4EF;
+    --ink: #1C1917;
+    --muted: #6B6560;
+    --accent: #8B6F47;
+    --line: rgba(28,25,23,0.12);
+    --white: #ffffff;
+    --green: #3B6D11;
+    --green-bg: #EAF3DE;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Instrument Sans', sans-serif; background: var(--cream); color: var(--ink); }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(247,244,239,0.92); backdrop-filter: blur(8px);
+    border-bottom: 0.5px solid var(--line);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 3rem;
+  }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+  .hero {
+    min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center; padding: 8rem 3rem 4rem; gap: 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; width: 600px; height: 600px;
+    border-radius: 50%; border: 0.5px solid rgba(139,111,71,0.15);
+    top: -150px; right: -150px; pointer-events: none;
+  }
+  .hero::after {
+    content: ''; position: absolute; width: 350px; height: 350px;
+    border-radius: 50%; border: 0.5px solid rgba(139,111,71,0.1);
+    top: -50px; right: -50px; pointer-events: none;
+  }
+  .hero-label { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; }
+  .hero-name { font-family: 'Cormorant Garamond', serif; font-size: 72px; font-weight: 300; line-height: 1.05; margin-bottom: 1.2rem; }
+  .hero-name em { font-style: italic; color: var(--accent); }
+  .hero-roles { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+  .role-pill { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 14px; border-radius: 2px; border: 0.5px solid rgba(28,25,23,0.2); color: var(--ink); }
+  .role-pill.accent { background: rgba(139,111,71,0.1); border-color: rgba(139,111,71,0.4); color: var(--accent); }
+  .hero-summary { font-size: 14px; color: var(--muted); line-height: 1.9; max-width: 420px; margin-bottom: 2rem; }
+  .hero-contact { display: flex; flex-direction: column; gap: 6px; margin-bottom: 2rem; }
+  .contact-item { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+  .contact-item a { color: var(--accent); text-decoration: none; }
+  .contact-item a:hover { text-decoration: underline; }
+  .cta-row { display: flex; gap: 1rem; }
+  .btn-primary { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; background: var(--ink); color: var(--cream); border: none; padding: 12px 28px; cursor: pointer; border-radius: 2px; text-decoration: none; transition: background 0.2s; display: inline-block; }
+  .btn-primary:hover { background: var(--accent); }
+  .btn-ghost { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; background: transparent; color: var(--muted); border: 0.5px solid var(--line); padding: 12px 28px; cursor: pointer; border-radius: 2px; text-decoration: none; transition: all 0.2s; display: inline-block; }
+  .btn-ghost:hover { color: var(--ink); border-color: var(--ink); }
+  .portrait-wrap { display: flex; flex-direction: column; align-items: center; }
+  .portrait { width: 100%; max-width: 380px; aspect-ratio: 4/5; background: #E8DFD0; border-radius: 2px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+  .portrait-initial { font-family: 'Cormorant Garamond', serif; font-size: 110px; font-weight: 300; color: rgba(28,25,23,0.12); }
+  .portrait-caption { font-size: 11px; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; }
+  .metrics { background: var(--ink); padding: 4rem 3rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .metric { text-align: center; }
+  .metric-number { font-family: 'Cormorant Garamond', serif; font-size: 56px; font-weight: 300; color: var(--accent); line-height: 1; margin-bottom: 0.5rem; }
+  .metric-label { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(247,244,239,0.5); }
+  section { padding: 5rem 3rem; }
+  section:nth-child(even) { background: var(--white); }
+  .section-label { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300; color: var(--ink); margin-bottom: 0.5rem; }
+  .section-rule { width: 100%; height: 0.5px; background: var(--line); margin-bottom: 3rem; }
+  .exp-item { margin-bottom: 3rem; padding-left: 1.5rem; border-left: 2px solid var(--accent); }
+  .exp-item.secondary { border-left-color: var(--muted); }
+  .exp-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; flex-wrap: wrap; gap: 0.5rem; }
+  .exp-role { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--ink); }
+  .exp-date { font-size: 11px; letter-spacing: 0.1em; color: var(--accent); }
+  .exp-org { font-size: 13px; color: var(--muted); font-style: italic; margin-bottom: 1rem; }
+  .exp-duties { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-bottom: 1rem; }
+  .exp-duties li { font-size: 13px; color: var(--muted); line-height: 1.7; padding-left: 1rem; position: relative; }
+  .exp-duties li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
+  .achievements { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .ach { font-size: 11px; color: var(--green); background: var(--green-bg); border: 0.5px solid #97C459; padding: 4px 12px; border-radius: 2px; }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+  .skill-card { background: var(--cream); border: 0.5px solid var(--line); border-radius: 4px; padding: 1.5rem; border-top: 2px solid var(--accent); }
+  .skill-card-title { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .stag { font-size: 12px; background: rgba(28,25,23,0.05); color: var(--ink); padding: 4px 10px; border-radius: 2px; }
+  .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+  .edu-card { background: var(--white); border: 0.5px solid var(--line); border-radius: 4px; padding: 1.5rem; border-top: 2px solid var(--accent); }
+  .edu-inst { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; color: var(--ink); margin-bottom: 4px; }
+  .edu-deg { font-size: 12px; color: var(--muted); font-style: italic; margin-bottom: 6px; }
+  .edu-yr { font-size: 11px; color: var(--accent); letter-spacing: 0.08em; margin-bottom: 6px; }
+  .edu-note { font-size: 11px; color: var(--green); }
+  .contact-section { background: var(--ink); color: var(--cream); padding: 5rem 3rem; text-align: center; }
+  .contact-grid { display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; margin-top: 2rem; }
+  .contact-block-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,244,239,0.4); margin-bottom: 8px; }
+  .contact-block-value { font-size: 14px; color: var(--accent); }
+  .contact-block-value a { color: var(--accent); text-decoration: none; }
+  .contact-block-value a:hover { text-decoration: underline; }
+  footer { background: #111; padding: 1.5rem 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  footer p { font-size: 11px; letter-spacing: 0.1em; color: #5A5450; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-left > * { animation: fadeUp 0.7s ease both; }
+  .hero-label { animation-delay: 0.1s; }
+  .hero-name { animation-delay: 0.2s; }
+  .hero-roles { animation-delay: 0.3s; }
+  .hero-summary { animation-delay: 0.4s; }
+  .hero-contact { animation-delay: 0.5s; }
+  .cta-row { animation-delay: 0.6s; }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="#">R · A</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+<section class="hero" id="about">
+  <div class="hero-left">
+    <div class="hero-label">Portfolio · 2025</div>
+    <h1 class="hero-name">Rehema<br><em>Ausi</em></h1>
+    <div class="hero-roles">
+      <span class="role-pill">Data Analyst</span>
+      <span class="role-pill accent">Data Scientist Engineer</span>
+      <span class="role-pill">Certified Virtual Assistant</span>
+    </div>
+    <p class="hero-summary">Results-driven Data Analyst with hands-on experience in logistics analytics, KPI reporting, and operational performance optimization. Skilled in SQL, Python, and Power BI — turning complex data into actionable business insight.</p>
+    <div class="hero-contact">
+      <div class="contact-item">📍 Nairobi, Kenya</div>
+      <div class="contact-item">✉ <a href="mailto:ausirahma@gmail.com">ausirahma@gmail.com</a></div>
+      <div class="contact-item">📞 <a href="tel:+254745531776">0745 531 776</a></div>
+      <div class="contact-item">🔗 <a href="https://www.linkedin.com/in/rehema-ausi-4001a61a4" target="_blank">linkedin.com/in/rehema-ausi-4001a61a4</a></div>
+    </div>
+    <div class="cta-row">
+      <a href="#contact" class="btn-primary">Get In Touch</a>
+      <a href="#experience" class="btn-ghost">View Work</a>
+    </div>
+  </div>
+  <div class="portrait-wrap">
+    <div class="portrait"><span class="portrait-initial">RA</span></div>
+    <div class="portrait-caption">Rehema Ausi · Nairobi, Kenya</div>
+  </div>
+</section>
+<div class="metrics">
+  <div class="metric"><div class="metric-number">87%</div><div class="metric-label">Reporting time reduced</div></div>
+  <div class="metric"><div class="metric-number">1,200+</div><div class="metric-label">Households enumerated</div></div>
+  <div class="metric"><div class="metric-number">98%</div><div class="metric-label">Data accuracy achieved</div></div>
+</div>
+<section id="experience">
+  <div class="section-label">Professional Experience</div>
+  <h2 class="section-title">Career History</h2>
+  <div class="section-rule"></div>
+  <div class="exp-item">
+    <div class="exp-top">
+      <div class="exp-role">Data Analyst</div>
+      <div class="exp-date">June 2022 – Present</div>
+    </div>
+    <div class="exp-org">RTZ UK Direct – Freight & Logistics</div>
+    <ul class="exp-duties">
+      <li>Analyzed logistics and freight data to identify trends and performance gaps</li>
+      <li>Designed and deployed Power BI dashboards tracking delivery timelines, shipment volumes, and cost performance</li>
+      <li>Automated SQL reporting processes, reducing reporting time by 87%</li>
+      <li>Monitored KPIs including on-time delivery, turnaround time, and cost efficiency</li>
+      <li>Conducted geospatial route analysis to optimize delivery speed and reduce fuel costs</li>
+      <li>Partnered with Operations, Finance, and Customer Care teams to drive data-informed improvements</li>
+    </ul>
+    <div class="achievements">
+      <span class="ach">+12% on-time delivery</span>
+      <span class="ach">-8% freight costs</span>
+      <span class="ach">+20% operational response speed</span>
+    </div>
+  </div>
+  <div class="exp-item secondary">
+    <div class="exp-top">
+      <div class="exp-role">Data Enumerator</div>
+      <div class="exp-date">2019</div>
+    </div>
+    <div class="exp-org">Kenya National Census</div>
+    <ul class="exp-duties">
+      <li>Collected and validated data from 1,200+ households using digital data collection tools</li>
+      <li>Maintained 98% data accuracy through structured validation processes</li>
+      <li>Supported real-time reporting and field coordination</li>
+    </ul>
+    <div class="achievements">
+      <span class="ach">+30% data accuracy</span>
+      <span class="ach">Improved team efficiency</span>
+    </div>
+  </div>
+</section>
+<section id="skills">
+  <div class="section-label">Technical Skills</div>
+  <h2 class="section-title">Tools & Expertise</h2>
+  <div class="section-rule"></div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-card-title">Programming & Analytics</div>
+      <div class="skill-tags">
+        <span class="stag">SQL</span><span class="stag">Python</span><span class="stag">Statistical Analysis</span><span class="stag">Data Cleaning</span><span class="stag">Exploratory Data Analysis</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">Visualization & BI</div>
+      <div class="skill-tags"><span class="stag">Power BI</span><span class="stag">Microsoft Excel</span></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">Domain Expertise</div>
+      <div class="skill-tags">
+        <span class="stag">Logistics Analytics</span><span class="stag">KPI Reporting</span><span class="stag">Geospatial Analysis</span><span class="stag">Route Optimization</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">Tools & Platforms</div>
+      <div class="skill-tags">
+        <span class="stag">Google Workspace</span><span class="stag">Digital Reporting</span><span class="stag">Virtual Assistance</span><span class="stag">Cross-functional Collaboration</span>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="education">
+  <div class="section-label">Education & Training</div>
+  <h2 class="section-title">Academic Background</h2>
+  <div class="section-rule"></div>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-inst">Kenyatta University</div>
+      <div class="edu-yr">Sep 2019 – Dec 2024</div>
+      <div class="edu-deg">BSc Statistics & Programming</div>
+      <div class="edu-note">Second Class Honours</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-inst">Denaco Analytics</div>
+      <div class="edu-yr">2023 – 2025</div>
+      <div class="edu-deg">Data Analysis & Data Science</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-inst">ALX</div>
+      <div class="edu-yr">2025 – Present</div>
+      <div class="edu-deg">Data Science Program</div>
+      <div class="edu-note">Certified Virtual Assistant</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-inst">CPA</div>
+      <div class="edu-yr">Ongoing</div>
+      <div class="edu-deg">Certified Public Accountant</div>
+      <div class="edu-note">In Progress</div>
+    </div>
+  </div>
+</section>
+<div class="contact-section" id="contact">
+  <div class="section-label" style="color:rgba(247,244,239,0.4);">Get In Touch</div>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;font-style:italic;color:var(--cream);margin-bottom:2rem;">Let's Connect</h2>
+  <div class="contact-grid">
+    <div class="contact-block"><div class="contact-block-label">Email</div><div class="contact-block-value"><a href="mailto:ausirahma@gmail.com">ausirahma@gmail.com</a></div></div>
+    <div class="contact-block"><div class="contact-block-label">Phone</div><div class="contact-block-value"><a href="tel:+254745531776">0745 531 776</a></div></div>
+    <div class="contact-block"><div class="contact-block-label">LinkedIn</div><div class="contact-block-value"><a href="https://www.linkedin.com/in/rehema-ausi-4001a61a4" target="_blank">View Profile</a></div></div>
+    <div class="contact-block"><div class="contact-block-label">Location</div><div class="contact-block-value">Nairobi, Kenya</div></div>
+  </div>
+</div>
+<footer>
+  <p>Rehema Ausi · Data Analyst & Data Scientist Engineer · Nairobi, Kenya</p>
+  <p>© 2025</p>
+</footer>
+</body>
+</html>
